@@ -1,0 +1,24 @@
+<h3>Login Form</h3>
+<form #loginForm="ngForm" (ngSubmit)="validate(loginForm)">
+<div class="form-group">
+    <label>Name:</label>
+    <input type="text" name="name" ngModel class="form-control" pattern="[a-z]+" minlength="3" #name="ngModel" required>
+    <!-- <small *ngIf="name.invalid && name.touched" class="text-danger">Name is mandatory</small>
+     -->
+     <small *ngIf="name.invalid && name.touched" >
+         <small *ngIf="name.errors.required" class="text-danger">Name is mandatory</small>
+         <small *ngIf="name.errors.minlength" class="text-danger">Name should be min 3 characters</small>
+         <small *ngIf="name.errors.pattern" class="text-danger">only small case characters</small>
+     </small>
+     <!-- <div *ngIf="name.invalid && name.touched" >
+        <div *ngIf="name.errors.required" class="alert alert-danger">Name is mandatory</div>
+        <div *ngIf="name.errors.minlength" class="alert alert-danger">Name should be min 3 characters</div>
+        <div *ngIf="name.errors.pattern" class="alert alert-danger">only small case characters</div>
+     </div> -->
+</div>
+<div class="form-group">
+    <label>Password</label>
+    <input type="password" name="password" ngModel class="form-control" required>
+</div>
+<button class="btn btn-primary" [disabled]="loginForm.invalid">Submit</button>
+</form>

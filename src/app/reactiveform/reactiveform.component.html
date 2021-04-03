@@ -1,0 +1,24 @@
+<h3>Reactive login form</h3>
+<form [formGroup]="loginForm" (ngSubmit)="validate()">
+
+    <div class="form-group">
+        <label>Name</label>
+        <input type="text" formControlName="name" class="form-control">
+        <!-- <small *ngIf="loginForm.get('name').invalid && loginForm.get('name').touched" class="text-danger">
+            <small *ngIf="loginForm.get('name').hasError('required')">Name is mandatory</small>
+            <small *ngIf="loginForm.get('name').hasError('minlength')">Name must be atleast 3 characters</small>
+            <small *ngIf="loginForm.get('name').hasError('pattern')">Only small letters allowed</small>
+
+        </small> -->
+        <small *ngIf="name.invalid && name.touched" class="text-danger">
+            <small *ngIf="name.hasError('required')">Name is mandatory</small>
+            <small *ngIf="name.hasError('minlength')">name must be 3 character</small>
+            <small *ngIf="name.hasError('pattern')">Only small aphabets</small>
+        </small>
+    </div>
+    <div class="form-group">
+        <label>Password</label>
+        <input type="password" formControlName="pass" class="form-control">
+    </div>
+    <button class="btn btn-primary" >Submit</button>
+</form>
