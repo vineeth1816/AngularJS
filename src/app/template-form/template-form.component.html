@@ -2,7 +2,7 @@
 <form #loginForm="ngForm" (ngSubmit)="validate(loginForm)">
 <div class="form-group">
     <label>Name:</label>
-    <input type="text" name="name" ngModel class="form-control" pattern="[a-z]+" minlength="3" #name="ngModel" required>
+    <input type="text"  name="name" ngModel class="form-control" pattern="[a-z]+" minlength="3" #name="ngModel" required>
     <!-- <small *ngIf="name.invalid && name.touched" class="text-danger">Name is mandatory</small>
      -->
      <small *ngIf="name.invalid && name.touched" >
@@ -20,5 +20,6 @@
     <label>Password</label>
     <input type="password" name="password" ngModel class="form-control" required>
 </div>
-<button class="btn btn-primary" [disabled]="loginForm.invalid">Submit</button>
+<!-- <button class="btn btn-primary" [disabled]="loginForm.invalid">Submit</button> -->
+<button class="btn btn-primary">Submit</button>
 </form>
